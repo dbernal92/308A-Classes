@@ -116,3 +116,33 @@ class Animal {
   
   console.log(cat1.toString());
   console.log(cat1);
+
+  console.log("======================================");
+
+class Human extends Animal {
+  constructor(isAwake, isMoving, hair, first, last, age, occupation, city, state, zip) {
+    super(2, 2, isAwake, isMoving);
+    this.hair = hair;
+    this.name = {
+      first,
+      last
+    };
+    this.age = age;
+    this.occupation = occupation;
+    this.location = {
+      city,
+      state,
+      zip
+    }
+  }
+
+  introduce() {
+    console.log(`Hello, my name is ${this.name.first} ${this.name.last}, and I'm a ${this.age}-year-old ${this.occupation} from ${this.location.city}, ${this.location.state}!`);
+  }
+}
+
+
+const person1 = new Human(true, true, "Black", "Paul", "Walker", 30, "Mechanic", "San Francisco", "CA", 10033)
+
+console.log(person1);
+person1.introduce();
