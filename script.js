@@ -59,14 +59,14 @@ const person2 = {
   // Instance of a class
   // console.log(animal1);
   
-  const animals = [];
+  // const animals = [];
   
-  for (let i = 0; i < 100; i++) {
-      const animal1 = new Animal(2, 4, true, false);
-      animals.push(animal1)
-  }
+  // for (let i = 0; i < 100; i++) {
+  //     const animal1 = new Animal(2, 4, true, false);
+  //     animals.push(animal1)
+  // }
   
-  console.log(animals);
+  // console.log(animals);
 
   // Class Definition
 class Animal {
@@ -137,7 +137,7 @@ class Human extends Animal {
   }
 
   introduce() {
-    console.log(`Hello, my name is ${this.name.first} ${this.name.last}, and I'm a ${this.age}-year-old ${this.occupation} from ${this.location.city}, ${this.location.state}!`);
+    console.log(`"Hello, my name is ${this.name.first} ${this.name.last}, and I'm a ${this.age}-year-old ${this.occupation} from ${this.location.city}, ${this.location.state}!"`);
   }
 }
 
@@ -146,3 +146,38 @@ const person1 = new Human(true, true, "Black", "Paul", "Walker", 30, "Mechanic",
 
 console.log(person1);
 person1.introduce();
+
+class Developer extends Human {
+  constructor (isAwake, isMoving, hair, first, last, age, occupation, city, state, zip, programmingLanguage) {
+    super (isAwake, isMoving, hair, first, last, age, occupation, city, state, zip)
+    this.programmingLanguage = programmingLanguage;
+  }
+
+  skill() {
+    console.log(`${this.name.first} has many programming language skills, but is most proficient in ${this.programmingLanguage}.`)
+  }
+}
+
+const newHire = new Developer(true, true, "auburn", "Jordan", "Johnson", "32", "developer", "Brooklyn", "NY", "11219", "JavaScript");
+
+newHire.introduce();
+newHire.skill();
+
+class FrontEndDeveloper extends Developer {
+  constructor (isAwake, isMoving, hair, first, last, age, city, state, zip, programmingLanguage, expYears, designTool, framework) {
+    super (isAwake, isMoving, hair, first, last, age, "Front-End Developer", city, state, zip, programmingLanguage)
+    this.expYears = expYears;
+    this.designTool = designTool;
+    this.framework = framework;
+  }
+
+  job() {
+    console.log(`"I have ${this.expYears} of experience using ${this.framework}. I prefer designing with ${this.designTool} mostly."`)
+  }
+}
+
+const newHire1 = new FrontEndDeveloper(true, true, "brown", "Terry", "Timm", "34", "Brooklyn", "NY", "11227", "TypeScript", "7", "Figma", "React");
+
+newHire1.introduce();
+newHire1.skill();
+newHire1.job();
